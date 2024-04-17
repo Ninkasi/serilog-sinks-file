@@ -1,7 +1,4 @@
-﻿using System;
-using System.IO;
-using System.Linq;
-using Xunit;
+﻿using Xunit;
 
 namespace Serilog.Sinks.PersistentFile.Tests
 {
@@ -68,7 +65,7 @@ namespace Serilog.Sinks.PersistentFile.Tests
             const string similar1 = "log-0.txt";
             const string similar2 = "log-helloyou.txt";
             var matched = roller.SelectMatches(new[] { similar1, similar2 });
-            Assert.Equal(0, matched.Count());
+            Assert.Empty(matched);
         }
 
         [Fact]
@@ -86,7 +83,7 @@ namespace Serilog.Sinks.PersistentFile.Tests
             var roller = new PathRoller(template, interval);
             var matched = roller.SelectMatches(new[] { zeroth, thirtyFirst }).ToArray();
             Assert.Equal(2, matched.Length);
-            Assert.Equal(null, matched[0].SequenceNumber);
+            Assert.Null(matched[0].SequenceNumber);
             Assert.Equal(31, matched[1].SequenceNumber);
         }
 

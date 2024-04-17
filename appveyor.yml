@@ -13,7 +13,7 @@ for:
       - image: Ubuntu
   build_script:
     - sh build.sh
-test: off
+test: false
 artifacts:
 - path: artifacts/Serilog.*.nupkg
 deploy:

@@ -14,7 +14,12 @@
 
   <PropertyGroup>
     <DefineConstants>$(DefineConstants);ATOMIC_APPEND;HRESULTS</DefineConstants>
-    <AssemblyVersion>2.3.0.0</AssemblyVersion>
+    <AssemblyVersion>2.3.2.0</AssemblyVersion>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageId>$(AssemblyName).ByNinkasi</PackageId>
+    <Title>Serilog.Sinks.PersistentFile.ByNinkasi</Title>
+    <Version>1.1.0</Version>
+    <FileVersion>1.2.0.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>

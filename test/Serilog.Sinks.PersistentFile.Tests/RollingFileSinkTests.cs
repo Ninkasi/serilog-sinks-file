@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.IO.Compression;
-using System.Linq;
+﻿using System.IO.Compression;
 using System.Reflection;
 using Serilog.Configuration;
 using Serilog.Events;
@@ -205,7 +201,7 @@ namespace Serilog.Sinks.PersistentFile.Tests
         public void AssemblyVersionIsFixedAt210()
         {
             var assembly = typeof(FileLoggerConfigurationExtensions).GetTypeInfo().Assembly;
-            Assert.Equal("2.3.0.0", assembly.GetName().Version.ToString(4));
+            Assert.Equal("2.3.2.0", assembly.GetName().Version.ToString(4));
         }
 
         [Fact]

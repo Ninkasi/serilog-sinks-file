@@ -12,10 +12,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-using System;
-using System.IO;
-using System.Linq;
-using System.Reflection;
 using System.Text;
 using Serilog.Core;
 using Serilog.Debugging;
@@ -154,7 +150,7 @@ namespace Serilog.Sinks.PersistentFile
                     {
                         for (var attempt = 0; attempt < maxAttempts; attempt++)
                         {
-                            for (var i = sequence - 1; i > 0; i--)
+                            for (var i = sequence; i > 0; i--)
                             {
                                 _roller.GetLogFilePath(_useLastWriteAsTimestamp ? fileInfo.LastWriteTime : now,
                                 i + 1, out var newPath);
@@ -194,7 +190,7 @@ namespace Serilog.Sinks.PersistentFile
                                 sequence > 1 ? 1 : sequence, out var path);
                             try
                             {
-                                System.IO.File.Move(currentPath, path);
+                                System.IO.File.Move(currentPath, path, _keepFilename);
                             }
                             catch (IOException ex)
                             {

@@ -1,6 +1,4 @@
-﻿using System;
-using System.IO;
-using Serilog;
+﻿using Serilog;
 using Serilog.Debugging;
 
 namespace Sample
@@ -12,9 +10,9 @@ namespace Sample
             SelfLog.Enable(Console.Out);
 
             var sw = System.Diagnostics.Stopwatch.StartNew();
-
+            string path = Path.Combine("c:", "temp", "log.txt");
             Log.Logger = new LoggerConfiguration()
-                .WriteTo.PersistentFile("log.txt")
+                .WriteTo.PersistentFile(path, fileSizeLimitBytes: 1024, rollOnFileSizeLimit: true, persistentFileRollingInterval: PersistentFileRollingInterval.Infinite, retainedFileCountLimit: 3)
                 .CreateLogger();
 
             for (var i = 0; i < 1000000; ++i)
