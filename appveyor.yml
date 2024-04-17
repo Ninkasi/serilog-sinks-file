@@ -2,7 +2,7 @@ version: '{build}'
 skip_tags: true
 image:
   - Visual Studio 2022
-  - Ubuntu
+  - Ubuntu2204
 configuration: Release
 build_script:
 - ps: ./Build.ps1
@@ -19,7 +19,7 @@ artifacts:
 deploy:
 - provider: NuGet
   api_key:
-    secure: wOmTD1ruaChOdmH7FPabf3DEu0eRn+LDrmJ4l1bxDvhFK5HuCdPqSrQDsb1JqHom
+    secure: sl+QD7Cj+E9sIAAUYEwPT+1l9ZdBgA7dlPJ7DYcDO+hAj8ytP/+VGgWruNS1Iqge
   skip_symbols: true
   on:
     branch: /^(master|dev)$/
